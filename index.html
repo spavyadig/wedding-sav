@@ -286,6 +286,80 @@
       letter-spacing: .5px;
     }
 
+    .sims-logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:20px;
+    }
+    
+    .logo-plumbob{
+      color:#7cff3a;
+      font-size:48px;
+    }
+    
+    .logo-text{
+      font-size:54px;
+      font-weight:900;
+      color:white;
+      text-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
+
+    .top-ui{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      margin-bottom:12px;
+    }
+    
+    .top-ui span{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+    }
+
+    .needs-panel{
+      margin-top:20px;
+      background:white;
+      border-radius:20px;
+      padding:20px;
+    }
+    
+    .need{
+      margin-bottom:12px;
+    }
+    
+    .bar{
+      height:12px;
+      background:#ddd;
+      border-radius:999px;
+    }
+    
+    .bar span{
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:#56d03d;
+    }
+    
+    .household{
+      display:flex;
+      gap:20px;
+    }
+    
+    .sim{
+      background:#f5f5f5;
+      border-radius:14px;
+      padding:15px;
+      text-align:center;
+      min-width:90px;
+    }
+
     @media (max-width: 1000px) {
       .page {
         grid-template-columns: 1fr;
@@ -335,12 +409,32 @@
     </nav>
 
     <main class="content" id="home">
+
+      <div class=top-ui">
+           <span>🛠️</span>
+        <span>🗺️</span>
+        <span>💡</span>
+        <span>🛒</span>
+        <span>☰</span>
+      </div>
+      
       <section class="hero">
         <div class="hero-main">
           <div class="hero-text">
-            <h1>Marc &<br>Savannah’s<br><span class="green">Wedding</span></h1>
-            <p>Let’s plumbob together forever. 💚</p>
-          </div>
+            
+            <div class="sims-logo">
+              <span class="sims-green">◆</span>
+              <span class="sims-text">The Sims 4</span>
+            </div>
+          
+        <h1>
+          Marc &<br>
+          Savannah's<br>
+          <span class="green">Wedding</span>
+        </h1>
+        
+        <p>Let's plumbob together forever 💚</p>
+        
         </div>
 
         <div class="card rsvp-card" id="rsvp">
@@ -459,7 +553,45 @@
             <div>🪩<br>10:00 PM<br>After Party</div>
           </div>
         </div>
+
+        <div class="card">
+          
+          <h2>🏠 Household</h2>
+          
+          <div class="household">
+
+            <div class="sim">👨<br>Marc</div>
+            <div class="sim">👩<br>Savannah</div>
+            <div class="sim">🐕<br>Oakley</div>
+            
+          </div>
+
+</div>
       </section>
+
+      <div class="needs-panel">
+        
+        <div class="need">
+          Romance
+          <div class="bar"><span style="width:100%"></span></div>
+        </div>
+
+        <div class="need">
+          Fun
+          <div class="bar"><span style="width:95%"></span></div>
+        </div>
+        
+        <div class="need">
+          Social
+          <div class="bar"><span style="width:100%"></span></div>
+        </div>
+        
+        <div class="need">
+          Energy
+          <div class="bar"><span style="width:80%"></span></div>
+        </div>
+
+</div>
 
       <div class="bottom-bar">
         💚 Thank you for being a part of our story. We can't wait to celebrate our forever with you!
