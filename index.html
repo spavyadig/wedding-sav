@@ -61,9 +61,13 @@
       animation: float 2.8s ease-in-out infinite;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-12px);
+      }
     }
 
     .content {
@@ -93,16 +97,22 @@
       box-shadow: 0 10px 35px rgba(0,0,0,.25);
     }
 
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      top: 30px;
-      right: 45px;
-      width: 55px;
-      height: 95px;
-      background: linear-gradient(#b6ff66, #2ea63a);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      filter: drop-shadow(0 8px 10px rgba(0,0,0,.35));
+    .plumbob{
+      position:absolute;
+      top:30px;
+      right:30px;
+      width:90px;
+      z-index:10;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,.25));
+      animation: float 2.5s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-12px);
+      }
     }
 
     .hero-text {
@@ -467,6 +477,8 @@
       
       <section class="hero">
         <div class="hero-main">
+
+          <img src="plumbob.png" class="plumbob">
           
           <div class="hero-text">
             <div class="sims-logo">
