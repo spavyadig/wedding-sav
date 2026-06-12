@@ -80,7 +80,7 @@
     }
 
     .hero-main {
-      min-height: 650px;
+      min-height: 750px;
       border-radius: 24px;
       padding: 40px;
       display: flex;
@@ -147,13 +147,22 @@
     }
 
     .rsvp-card {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+
+      width: 380px;
+      max-width: 380px;
+
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       gap: 20px;
 
-      max-width: 520px;
-      justify-self: end;
+      background: rgba(255,255,255,.95);
+      border-radius: 24px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
     }
 
     .sim-people {
@@ -464,6 +473,25 @@
               <span class="sims-green">◆</span>
               <span class="sims-text">The Sims 4</span>
             </div>
+            
+            <div class="card rsvp-card" id="rsvp">
+              <div>
+                <h2>💚 Plumbob Us In!</h2>
+                <p>We hope you can join us for our big day.</p>
+                
+                <a class="button" href="#">Yes, I'll Be There!</a><br>
+                
+                <a class="button outline" href="#">Add to Calendar</a>
+              </div>
+        
+          <div class="sim-portraits">
+          
+            <div class="portrait">👩</div>
+            
+            <div class="portrait">👨</div>
+            
+          </div>
+          
           
         <h1>
           Marc &<br>
@@ -475,24 +503,6 @@
         
         </div>
 
-        <div class="card rsvp-card" id="rsvp">
-          <div>
-            <h2>💚 Plumbob Us In!</h2>
-            <p>We hope you can join us for our big day.</p>
-            
-            <a class="button" href="#">Yes, I'll Be There!</a><br>
-            
-            <a class="button outline" href="#">Add to Calendar</a>
-          </div>
-        
-          <div class="sim-portraits">
-          
-            <div class="portrait">👩</div>
-            
-            <div class="portrait">👨</div>
-            
-          </div>
-          
         </div>
       </section>
 
