@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marc & Savannah's Wedding</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #1d2b7a, #5d8fd7, #7fc96f);
+      color: #1f2f1f;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      gap: 24px;
+      padding: 24px;
+    }
+
+    .sidebar {
+      background: rgba(255, 246, 240, 0.95);
+      border-radius: 0 28px 28px 0;
+      padding: 28px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 32px;
+      text-decoration: none;
+      color: #183b80;
+      font-weight: bold;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 12px;
+      margin-top: 6px;
+      color: #111;
+      text-transform: uppercase;
+    }
+
+    .plumbob {
+      width: 42px;
+      height: 72px;
+      background: linear-gradient(#b6ff66, #2ea63a);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      filter: drop-shadow(0 5px 8px rgba(0,0,0,.35));
+      animation: float 2.8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .content {
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .hero-main {
+      min-height: 360px;
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(20,30,80,.15), rgba(10,20,50,.45)),
+        url("hero.jpg") center/cover;
+      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      top: 30px;
+      right: 45px;
+      width: 55px;
+      height: 95px;
+      background: linear-gradient(#b6ff66, #2ea63a);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,.35));
+    }
+
+    .hero-text {
+      background: rgba(255,255,255,.18);
+      border: 2px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 30px;
+      color: white;
+      max-width: 520px;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: .95;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .hero-text .green {
+      color: #a8ff66;
+    }
+
+    .hero-text p {
+      font-size: 22px;
+      margin-bottom: 0;
+    }
+
+    .card {
+      background: rgba(255,255,255,.93);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.5);
+    }
+
+    h2 {
+      margin-top: 0;
+      text-transform: uppercase;
+      color: #2f8b35;
+      font-size: 24px;
+    }
+
+    .rsvp-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .sim-people {
+      font-size: 68px;
+      white-space: nowrap;
+    }
+
+    button,
+    .button {
+      display: inline-block;
+      background: linear-gradient(#78d657, #2f8b35);
+      color: white;
+      border: none;
+      padding: 15px 28px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .outline {
+      background: white;
+      color: #2f8b35;
+      border: 2px solid #2f8b35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.1fr;
+      gap: 24px;
+    }
+
+    .timeline-story p,
+    .details p {
+      margin: 12px 0;
+      line-height: 1.4;
+    }
+
+    .story-year {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      font-size: 30px;
+    }
+
+    .accommodations {
+      grid-column: span 2;
+    }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .hotel {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #d8e8d2;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .hotel-img {
+      height: 95px;
+      background: linear-gradient(135deg, #7fb1e6, #4e7d3e);
+    }
+
+    .stars {
+      color: #3da334;
+      padding: 10px;
+    }
+
+    .food-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .food-options span {
+      background: #fff;
+      border: 1px solid #d8e8d2;
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .registry {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .registry-art {
+      font-size: 70px;
+    }
+
+    .wedding-timeline {
+      grid-column: span 3;
+    }
+
+    .timeline-line {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      text-align: center;
+      margin-top: 20px;
+      border-top: 5px solid #4cae3f;
+      padding-top: 20px;
+    }
+
+    .timeline-line div {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .bottom-bar {
+      margin-top: 20px;
+      color: white;
+      font-weight: bold;
+      letter-spacing: .5px;
+    }
+
+    @media (max-width: 1000px) {
+      .page {
+        grid-template-columns: 1fr;
+        padding: 14px;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        width: 100%;
+        border-radius: 20px;
+        justify-content: space-around;
+      }
+
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .accommodations,
+      .wedding-timeline {
+        grid-column: span 1;
+      }
+
+      .hotel-grid,
+      .timeline-line {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <nav class="sidebar">
+      <div class="plumbob"></div>
+
+      <a class="nav-item" href="#home">🏠<span>Home</span></a>
+      <a class="nav-item" href="#story">💜<span>Our Story</span></a>
+      <a class="nav-item" href="#details">📋<span>Details</span></a>
+      <a class="nav-item" href="#food">🍽️<span>Food</span></a>
+      <a class="nav-item" href="#rsvp">👥<span>RSVP</span></a>
+      <a class="nav-item" href="#">•••<span>More</span></a>
+    </nav>
+
+    <main class="content" id="home">
+      <section class="hero">
+        <div class="hero-main">
+          <div class="hero-text">
+            <h1>Marc &<br>Savannah’s<br><span class="green">Wedding</span></h1>
+            <p>Let’s plumbob together forever. 💚</p>
+          </div>
+        </div>
+
+        <div class="card rsvp-card" id="rsvp">
+          <div>
+            <h2>💚 Plumbob Us In!</h2>
+            <p>We hope you can join us for our big day.</p>
+            <a class="button" href="#">Yes, I’ll Be There!</a><br>
+            <a class="button outline" href="#">Add to Calendar</a>
+          </div>
+          <div class="sim-people">👩🏼‍🦱👨🏻‍🦱👩🏽👨🏻</div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card timeline-story" id="story">
+          <h2>💜 Our Love Story</h2>
+
+          <div class="story-year">
+            <div class="icon">💬</div>
+            <p><strong>2016<br>The Meet Cute</strong><br>It all started with a smile.</p>
+          </div>
+
+          <div class="story-year">
+            <div class="icon">✈️</div>
+            <p><strong>2019<br>Our First Adventure</strong><br>Many trips and memories made.</p>
+          </div>
+
+          <div class="story-year">
+            <div class="icon">🏡</div>
+            <p><strong>2022<br>Moved In Together</strong><br>Our first place together.</p>
+          </div>
+
+          <div class="story-year">
+            <div class="icon">💍</div>
+            <p><strong>2024<br>She Said Yes!</strong><br>The best day ever.</p>
+          </div>
+
+          <div class="story-year">
+            <div class="icon">💚</div>
+            <p><strong>2027<br>Forever Starts Here</strong><br>Our next and best chapter yet.</p>
+          </div>
+        </div>
+
+        <div class="card details" id="details">
+          <h2>📋 Event Details</h2>
+          <p><strong>Date:</strong><br>Saturday, October 16, 2027</p>
+          <p><strong>Ceremony:</strong><br>4:00 PM at The Sandbridge Beach House</p>
+          <p><strong>Reception:</strong><br>6:00 PM at The Sandbridge Beach House</p>
+          <p><strong>Location:</strong><br>202 Sandbridge Rd, Virginia Beach, VA 23456</p>
+          <p><strong>Attire:</strong><br>Semi-Formal, beachy & elegant</p>
+          <p><strong>Parking:</strong><br>On-site parking available</p>
+        </div>
+
+        <div class="card accommodations">
+          <h2>🏡 Accommodations</h2>
+          <div class="hotel-grid">
+            <div class="hotel">
+              <div class="hotel-img"></div>
+              <p>The Hilton Virginia Beach Oceanfront</p>
+              <div class="stars">💚💚💚💚</div>
+            </div>
+
+            <div class="hotel">
+              <div class="hotel-img"></div>
+              <p>The Cavalier Virginia Beach</p>
+              <div class="stars">💚💚💚💚💚</div>
+            </div>
+
+            <div class="hotel">
+              <div class="hotel-img"></div>
+              <p>Airbnb Beach Houses</p>
+              <div class="stars">💚💚💚💚</div>
+            </div>
+
+            <div class="hotel">
+              <div class="hotel-img"></div>
+              <p>Oceanfront Rentals</p>
+              <div class="stars">💚💚💚💚</div>
+            </div>
+          </div>
+          <a class="button outline" href="#">View More Options</a>
+        </div>
+
+        <div class="card food" id="food">
+          <h2>🍽️ Food Choices</h2>
+          <p>Help us plan the perfect menu.</p>
+          <div class="food-options">
+            <span>🥩 Steak</span>
+            <span>🍗 Chicken</span>
+            <span>🐟 Fish</span>
+            <span>🥗 Vegetarian</span>
+            <span>🍅 Vegan</span>
+            <span>🥛 Allergies</span>
+          </div>
+          <a class="button" href="#">Cast Your Vote</a>
+        </div>
+
+        <div class="card registry">
+          <div>
+            <h2>🎁 Gift Registry</h2>
+            <p>If you'd like to spoil us, we've put together a wishlist!</p>
+            <a class="button outline" href="#">View Registry</a>
+          </div>
+          <div class="registry-art">🎁🧸🪴</div>
+        </div>
+
+        <div class="card wedding-timeline">
+          <h2>💒 Wedding Timeline</h2>
+          <div class="timeline-line">
+            <div>💒<br>4:00 PM<br>Ceremony</div>
+            <div>📸<br>4:30 PM<br>Photos</div>
+            <div>🥂<br>5:30 PM<br>Cocktail Hour</div>
+            <div>🍽️<br>6:00 PM<br>Reception</div>
+            <div>🎵<br>7:30 PM<br>Dancing</div>
+            <div>🎂<br>9:30 PM<br>Cake Cutting</div>
+            <div>🪩<br>10:00 PM<br>After Party</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-bar">
+        💚 Thank you for being a part of our story. We can't wait to celebrate our forever with you!
+      </div>
+    </main>
+  </div>
+</body>
+</html>
